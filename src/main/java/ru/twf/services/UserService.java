@@ -1,14 +1,13 @@
 package ru.twf.services;
 
-import ru.twf.domain.User;
+import ru.twf.dto.UserDTO;
 
 import java.util.List;
 
 public interface UserService {
 
-    User getUserById(Long id);
-    List<User> getUsers();
-    User save(User user);
-    void delete(User user);
+    UserDTO getUserById(Long id);
+    List<UserDTO> getUsers();
+    UserDTO save(UserDTO user);
     void deleteById(Long id);
 }

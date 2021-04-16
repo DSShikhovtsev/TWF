@@ -1,18 +1,23 @@
 package ru.twf.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import ru.twf.enums.Sex;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Entity
+@Builder
 @Table(name = "users")
 public class User implements UserDetails {
 
@@ -21,7 +26,28 @@ public class User implements UserDetails {
     private Long id;
 
     @Column
-    private String name;
+    private String firstName;
+
+    @Column
+    private String lastName;
+
+    @Column
+    private String about;
+
+    @Column
+    private String city;
+
+    @Column
+    private String region;
+
+    @Column
+    private LocalDate birthday;
+
+    @Column
+    private Sex sex;
+
+    @Column
+    private Integer weight;
 
     @Column
     private String password;
@@ -38,7 +64,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.name;
+        return this.firstName;
     }
 
     @Override

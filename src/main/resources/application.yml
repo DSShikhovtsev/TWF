@@ -1,7 +1,13 @@
 server:
     port: 8090
 
+
+
 spring:
+    jackson:
+        serialization:
+            indent-output: true
+
     datasource:
         initialization-mode: always
 #        data: classpath:data.sql
