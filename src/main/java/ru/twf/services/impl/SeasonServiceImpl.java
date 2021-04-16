@@ -2,42 +2,43 @@ package ru.twf.services.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.twf.domain.User;
-import ru.twf.repository.UserRepository;
-import ru.twf.services.UserService;
+import ru.twf.domain.Season;
+import ru.twf.repository.SeasonRepository;
+import ru.twf.services.SeasonService;
 
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class SeasonServiceImpl implements SeasonService {
 
-    private final UserRepository repository;
+    private final SeasonRepository repository;
 
-    public UserServiceImpl(UserRepository repository) {
+    public SeasonServiceImpl(SeasonRepository repository) {
         this.repository = repository;
     }
 
     @Transactional(readOnly = true)
     @Override
-    public User getUserById(Long id) {
+    public Season getSeasonById(Long id) {
         return repository.getOne(id);
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<User> getUsers() {
+    public List<Season> getSeasons() {
         return repository.findAll();
     }
 
     @Transactional
     @Override
-    public User save(User user) {
-        return repository.save(user);
+    public Season save(Season season) {
+        return repository.save(season);
     }
 
     @Transactional
-    public void delete(User user) {
-        repository.delete(user);
+    @Override
+    public void delete(Season season) {
+        repository.delete(season);
     }
 
     @Transactional

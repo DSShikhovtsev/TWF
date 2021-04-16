@@ -2,42 +2,43 @@ package ru.twf.services.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.twf.domain.User;
-import ru.twf.repository.UserRepository;
-import ru.twf.services.UserService;
+import ru.twf.domain.Community;
+import ru.twf.repository.CommunityRepository;
+import ru.twf.services.CommunityService;
 
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class CommunityServiceImpl implements CommunityService {
 
-    private final UserRepository repository;
+    private final CommunityRepository repository;
 
-    public UserServiceImpl(UserRepository repository) {
+    public CommunityServiceImpl(CommunityRepository repository) {
         this.repository = repository;
     }
 
     @Transactional(readOnly = true)
     @Override
-    public User getUserById(Long id) {
+    public Community getCommunityById(Long id) {
         return repository.getOne(id);
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<User> getUsers() {
+    public List<Community> getCommunities() {
         return repository.findAll();
     }
 
     @Transactional
     @Override
-    public User save(User user) {
-        return repository.save(user);
+    public Community save(Community community) {
+        return repository.save(community);
     }
 
     @Transactional
-    public void delete(User user) {
-        repository.delete(user);
+    @Override
+    public void delete(Community community) {
+        repository.delete(community);
     }
 
     @Transactional
