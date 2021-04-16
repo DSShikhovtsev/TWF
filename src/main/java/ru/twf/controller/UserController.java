@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.twf.domain.User;
+import ru.twf.services.UserService;
 
 @RestController
 public class UserController {
 
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
+    private UserService userService;
+
     @GetMapping("users")
     public User getOwn() {
-        //todo get own User by spring sec
-        User user = new User();
-        user.setName("Murat");
-        return user;
+        return userService.getUserById(1L);
     }
 
     @PostMapping
