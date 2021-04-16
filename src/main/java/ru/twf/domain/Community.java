@@ -32,8 +32,8 @@ public class Community {
     @PrimaryKeyJoinColumn
     private User creator;
 
-    /*@ManyToMany(targetEntity = User.class)
+    @ManyToMany(targetEntity = User.class)
     @JoinTable(name = "users_communities", joinColumns = @JoinColumn(name = "id_community"),
         inverseJoinColumns = @JoinColumn(name = "id_user"))
-    private List<User> users;*/
+    private List<User> users;
 }

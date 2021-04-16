@@ -11,4 +11,6 @@ public interface SeasonService {
     Season save(Season season);
     void delete(Season season);
     void deleteById(Long id);
+
+    Season isAvailable(Season season);
 }

@@ -46,4 +46,9 @@ public class SeasonServiceImpl implements SeasonService {
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
+
+    @Override
+    public Season isAvailable(Season season) {
+        return repository.findByNameAndStartDateAndEndDate(season.getName(), season.getStartDate(), season.getEndDate());
+    }
 }

@@ -2,6 +2,7 @@ package ru.twf.controller;
 
 import org.springframework.web.bind.annotation.*;
 import ru.twf.domain.Community;
+import ru.twf.domain.Season;
 import ru.twf.services.CommunityService;
 
 import java.util.List;
@@ -38,5 +39,15 @@ public class CommunityController {
     @DeleteMapping("/communities/{id}")
     public void deleteCommunityById(@PathVariable(name = "id") Long id) {
         communityService.deleteById(id);
+    }
+
+    @PostMapping("/communities/invite/{id}")
+    public void getRequestForInviteFromUser(Community community, @PathVariable(name = "id") Long idUser) {
+        communityService.getRequestForInviteFromUser(community, idUser);
+    }
+
+    @PostMapping("/communities/season")
+    public void addCommunitySeason(Community community, Season season) {
+
     }
 }

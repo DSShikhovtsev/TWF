@@ -15,27 +15,27 @@ public class BodyCharacteristicController {
         this.bodyCharacteristicService = bodyCharacteristicService;
     }
 
-    @GetMapping("/bodyCharacteristics/{id}")
+    @GetMapping("/users/bodyCharacteristics/{id}")
     public BodyCharacteristic getBodyCharacteristic(@PathVariable(name = "id") Long id) {
         return bodyCharacteristicService.getBodyCharacteristicById(id);
     }
 
-    @GetMapping("/bodyCharacteristics")
+    @GetMapping("/users/bodyCharacteristics")
     public List<BodyCharacteristic> getBodyCharacteristics() {
         return bodyCharacteristicService.getBodyCharacteristics();
     }
 
-    @PostMapping("/bodyCharacteristic")
+    @PostMapping("/users/bodyCharacteristic")
     public BodyCharacteristic save(@RequestBody BodyCharacteristic bodyCharacteristic) {
         return bodyCharacteristicService.save(bodyCharacteristic);
     }
 
-    @DeleteMapping("/bodyCharacteristic")
+    @DeleteMapping("/users/bodyCharacteristic")
     public void delete(@RequestBody BodyCharacteristic bodyCharacteristic) {
         bodyCharacteristicService.delete(bodyCharacteristic);
     }
 
-    @DeleteMapping("/bodyCharacteristic/{id}")
+    @DeleteMapping("/users/bodyCharacteristic/{id}")
     public void deleteBodyCharacteristicById(@PathVariable(name = "id") Long id) {
         bodyCharacteristicService.deleteById(id);
     }

@@ -22,8 +22,13 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(readOnly = true)
     @Override
-    public UserDTO getUserById(Long id) {
+    public UserDTO getUserDTOById(Long id) {
         return convertToUserDTO(repository.getOne(id));
+    }
+
+    @Override
+    public User getUserById(Long id) {
+        return repository.getOne(id);
     }
 
     @Transactional(readOnly = true)
