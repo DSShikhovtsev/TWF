@@ -28,4 +28,10 @@ public class BodyCharacteristic {
 
     @Column
     private Boolean isDesired;
+
+    /*@ManyToOne(targetEntity = User.class)
+    @JoinTable(name = "users_characteristics", @JoinColumn(name = "characteristic_id"),
+        inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private User user;*/
+
 }
