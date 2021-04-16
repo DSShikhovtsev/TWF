@@ -1,0 +1,17 @@
+server:
+    port: 8090
+
+spring:
+    datasource:
+        initialization-mode: always
+#        data: classpath:data.sql
+        url: jdbc:postgresql://localhost:5433/twf
+        username: postgres
+        password: postgres
+
+    jpa:
+        generate-ddl: false
+        hibernate:
+            ddl-auto: create
+
+        show-sql: true
