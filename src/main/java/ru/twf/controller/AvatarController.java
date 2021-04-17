@@ -3,6 +3,7 @@ package ru.twf.controller;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.twf.services.AvatarService;
 
-//@Controller
+@Controller
 public class AvatarController {
     private final AvatarService avatarService;
 
@@ -25,7 +26,7 @@ public class AvatarController {
         return ResponseEntity.ok().contentType(MediaType.IMAGE_PNG).body(file);
     }
 
-    @PostMapping("/")
+    @PostMapping("avatar")
     public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
         avatarService.store(file);
