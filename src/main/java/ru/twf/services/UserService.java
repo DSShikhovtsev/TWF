@@ -16,4 +16,6 @@ public interface UserService {
     UserDTO saveUserDTO(UserDTO user);
 
     void deleteById(Long id);
+
+    User convertToUser(UserDTO userDTO);
 }

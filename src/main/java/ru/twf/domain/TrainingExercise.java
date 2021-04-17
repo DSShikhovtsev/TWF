@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Entity
-public class TrainingExercises {
+public class TrainingExercise {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,8 @@ public class TrainingExercises {
     @Column
     private long relaxTime;
 
-    /*@ManyToMany(targetEntity = Training.class)
+    /* вроде не нужно
+    @ManyToMany(targetEntity = Training.class)
     @JoinTable(name = "training_trainingExcersises", joinColumns = @JoinColumn(name = "training_excersises_id"),
         inverseJoinColumns = @JoinColumn(name = "training_id"))
     private List<Training> trainings;*/

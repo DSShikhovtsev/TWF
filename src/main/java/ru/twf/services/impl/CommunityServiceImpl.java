@@ -66,7 +66,7 @@ public class CommunityServiceImpl implements CommunityService {
     @Override
     public void addCommunitySeason(Community community, Season season) {
         //todo one global community
-        Season isAvailable = seasonService.isAvailable(season);
+        Season isAvailable = seasonService.isExists(season);
         if (isAvailable == null) {
             season.getCommunities().add(community);
             seasonService.save(season);

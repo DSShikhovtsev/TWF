@@ -48,7 +48,7 @@ public class SeasonServiceImpl implements SeasonService {
     }
 
     @Override
-    public Season isAvailable(Season season) {
+    public Season isExists(Season season) {
         return repository.findByNameAndStartDateAndEndDate(season.getName(), season.getStartDate(), season.getEndDate());
     }
 }

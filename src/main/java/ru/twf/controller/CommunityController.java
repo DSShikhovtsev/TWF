@@ -42,12 +42,12 @@ public class CommunityController {
     }
 
     @PostMapping("/communities/invite/{id}")
-    public void getRequestForInviteFromUser(Community community, @PathVariable(name = "id") Long idUser) {
+    public void getRequestForInviteFromUser(@RequestBody Community community, @PathVariable(name = "id") Long idUser) {
         communityService.getRequestForInviteFromUser(community, idUser);
     }
 
     @PostMapping("/communities/season")
-    public void addCommunitySeason(Community community, Season season) {
+    public void addCommunitySeason(@RequestBody Community community, @RequestBody Season season) {
 
     }
 }

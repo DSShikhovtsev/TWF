@@ -63,7 +63,8 @@ public class UserServiceImpl implements UserService {
         return userDTO;
     }
 
-    private User convertToUser(UserDTO userDTO) {
+    @Override
+    public User convertToUser(UserDTO userDTO) {
         User user = repository.getOne(userDTO.getId());
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());

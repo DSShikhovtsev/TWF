@@ -15,7 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests().antMatchers("/").not().authenticated()
                 .and()
-                .formLogin();
+                .formLogin().usernameParameter("user").passwordParameter("password");
     }
 
     @Bean

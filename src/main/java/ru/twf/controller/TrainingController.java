@@ -2,6 +2,7 @@ package ru.twf.controller;
 
 import org.springframework.web.bind.annotation.*;
 import ru.twf.domain.Training;
+import ru.twf.domain.TrainingExercise;
 import ru.twf.services.TrainingService;
 
 import java.util.List;
@@ -38,5 +39,10 @@ public class TrainingController {
     @DeleteMapping("/trainings/{id}")
     public void deleteById(@PathVariable(name = "id") Long id) {
         trainingService.deleteById(id);
+    }
+
+    @GetMapping("/trainings/{id}/exercises")
+    public List<TrainingExercise> getTrainingExercises(@PathVariable(name = "id") Long id) {
+        return trainingService.getTrainingById(id).getTrainingExercises();
     }
 }

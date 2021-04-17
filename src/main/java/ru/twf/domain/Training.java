@@ -7,6 +7,7 @@ import ru.twf.enums.TrainingType;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -29,4 +30,14 @@ public class Training {
 
     @Column(nullable = false)
     private TrainingType type;
+
+    @ManyToOne(targetEntity = User.class)
+    @JoinTable(name = "users_trainings", joinColumns = @JoinColumn(name = "training_id"),
+        inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private User user;
+
+    @ManyToMany(targetEntity = TrainingExercise.class)
+    @JoinTable(name = "trainings_trainingsExcercises", joinColumns = @JoinColumn(name = "training_id"),
+        inverseJoinColumns = @JoinColumn(name = "training_excercise_id"))
+    private List<TrainingExercise> trainingExercises;
 }
