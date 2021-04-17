@@ -51,6 +51,9 @@ public class User implements UserDetails {
     @Column
     private String password;
 
+    @Column
+    private String email;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
