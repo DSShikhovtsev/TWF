@@ -1,7 +1,5 @@
 package ru.twf.services.impl;
 
-import lombok.SneakyThrows;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,20 +68,10 @@ public class FileSystemStorageService implements StorageService {
         }
     }
 
-    @SneakyThrows
-    @Override
-    public byte[] load(String filename) {
-        return IOUtils.toByteArray(Files.newInputStream(rootLocation.resolve(filename)));
-    }
-
-    private Path loadPath(String filename) {
-        return rootLocation.resolve(filename);
-    }
-
     @Override
     public Resource loadAsResource(String filename) {
         try {
-            Path file = loadPath(filename);
+            Path file = rootLocation.resolve(filename);
             Resource resource = new UrlResource(file.toUri());
             if (resource.exists() || resource.isReadable()) {
                 return resource;
