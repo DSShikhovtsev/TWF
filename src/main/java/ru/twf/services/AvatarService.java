@@ -9,7 +9,5 @@ public interface AvatarService {
 
     Resource loadAsResource();
 
-    byte[] loadAsBytes();
-
     void store(MultipartFile file);
 }

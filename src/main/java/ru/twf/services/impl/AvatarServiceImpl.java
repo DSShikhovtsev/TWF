@@ -34,15 +34,6 @@ public class AvatarServiceImpl implements AvatarService {
     }
 
     @Override
-    public byte[] loadAsBytes() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User currentUser = (User) authentication.getPrincipal();
-        Avatar avatar = avatarRepository.getOne(currentUser.getId());
-
-        return storageService.load(avatar.getAvatarPath());
-    }
-
-    @Override
     public void store(MultipartFile file) {
         Path store = storageService.store(file);
 
