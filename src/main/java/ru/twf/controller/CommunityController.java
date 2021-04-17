@@ -48,6 +48,6 @@ public class CommunityController {
 
     @PostMapping("/communities/season")
     public void addCommunitySeason(@RequestBody Community community, @RequestBody Season season) {
-
+        communityService.addCommunitySeason(community, season);
     }
 }

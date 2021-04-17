@@ -54,6 +54,7 @@ public class CommunityServiceImpl implements CommunityService {
         repository.deleteById(id);
     }
 
+    @Transactional
     @Override
     public void getRequestForInviteFromUser(Community community, Long idUser) {
         if (community.getUsers().size() < community.getMemberQuentity().getSize()) {
@@ -63,6 +64,7 @@ public class CommunityServiceImpl implements CommunityService {
         }
     }
 
+    @Transactional
     @Override
     public void addCommunitySeason(Community community, Season season) {
         //todo one global community

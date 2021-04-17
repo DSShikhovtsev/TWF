@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -25,10 +24,4 @@ public class TrainingExercise {
 
     @Column
     private long relaxTime;
-
-    /* вроде не нужно
-    @ManyToMany(targetEntity = Training.class)
-    @JoinTable(name = "training_trainingExcersises", joinColumns = @JoinColumn(name = "training_excersises_id"),
-        inverseJoinColumns = @JoinColumn(name = "training_id"))
-    private List<Training> trainings;*/
 }
