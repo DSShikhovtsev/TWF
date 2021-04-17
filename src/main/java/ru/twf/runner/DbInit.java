@@ -24,7 +24,7 @@ public class DbInit implements ApplicationRunner {
     }
 
     private void fillUsers() {
-        userRepository.save(User.builder().firstName("Murat").lastName("Zhul").about("dota 2 busting").weight(116).build());
+        userRepository.save(User.builder().firstName("Мурат").lastName("Zhul").about("dota 2 busting").weight(116).build());
         userRepository.save(User.builder().firstName("Ilya").lastName("Shikh").birthday(LocalDate.of(1997, 5, 15)).build());
         userRepository.save(User.builder().firstName("Dima").lastName("Shikh").weight(78).build());
         userRepository.save(User.builder().firstName("Dawn").lastName("Breaker").sex(Sex.FEMALE).build());

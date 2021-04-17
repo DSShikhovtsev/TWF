@@ -1,23 +1,41 @@
 server:
-    port: 8090
+  port: 8090
+  servlet:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
 
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 
 spring:
-    jackson:
-        serialization:
-            indent-output: true
+  jackson:
+    serialization:
+      indent-output: true
 
-    datasource:
-        initialization-mode: always
-#        data: classpath:data.sql
-        url: jdbc:postgresql://localhost:5432/twf
-        username: postgres
-        password: twf
 
-    jpa:
-        generate-ddl: false
-        hibernate:
-            ddl-auto: create
+  datasource:
+    initialization-mode: always
+    #        data: classpath:data.sql
+    url: jdbc:postgresql://localhost:5432/twf
+    username: postgres
+    password: twf
 
-        show-sql: true
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: create
+
+    show-sql: true
+
+
+storage:
+  location: /Users/shikhovtsev/IdeaProjects/TWF/files
+
+logging:
+  level:
+    org.springframework.web: DEBUG

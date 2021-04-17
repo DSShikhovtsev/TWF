@@ -18,15 +18,15 @@ public class Training {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     private LocalDateTime startDate;
 
-    @Column
+    @Column(nullable = false)
     private LocalDateTime endDate;
 
-    @Column
+    @Column(nullable = false)
     private long calories;
 
-    @Column
+    @Column(nullable = false)
     private TrainingType type;
 }

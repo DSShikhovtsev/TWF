@@ -33,14 +33,14 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(readOnly = true)
     @Override
-    public List<UserDTO> getUsers() {
+    public List<UserDTO> getUserDTOs() {
         return repository.findAll().stream()
                 .map(this::convertToUserDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public UserDTO save(UserDTO userDTO) {
+    public UserDTO saveUserDTO(UserDTO userDTO) {
         return convertToUserDTO(repository.save(convertToUser(userDTO)));
     }
 

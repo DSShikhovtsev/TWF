@@ -2,9 +2,7 @@ package ru.twf.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.twf.dto.UserDTO;
 import ru.twf.services.UserService;
 
@@ -23,11 +21,16 @@ public class UserController {
 
     @GetMapping("users")
     public List<UserDTO> getOwn() {
-        return userService.getUsers();
+        return userService.getUserDTOs();
     }
 
-    @PostMapping
-    public void updateUser(UserDTO userDto) {
-        userService.save(userDto);
+    @GetMapping("users/{id}")
+    public UserDTO getOwn(@PathVariable("id") Long id) {
+        return userService.getUserDTOById(id);
+    }
+
+    @PostMapping("users")
+    public void updateUser(@RequestBody UserDTO userDto) {
+        userService.saveUserDTO(userDto);
     }
 }
