@@ -16,7 +16,7 @@
     <name>TWF</name>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
         <commons-io.version>2.8.0</commons-io.version>
     </properties>
 
