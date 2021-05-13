@@ -48,11 +48,11 @@ public class User implements UserDetails {
     @Column
     private Integer weight;
 
-    @Column
+    @Column(nullable = false)
     private String password;
 
-    @Column
-    private String email;
+    @Column(nullable = false)
+    private String login;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

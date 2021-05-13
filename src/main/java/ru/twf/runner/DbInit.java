@@ -24,11 +24,11 @@ public class DbInit implements ApplicationRunner {
     }
 
     private void fillUsers() {
-        userRepository.save(User.builder().firstName("Мурат").lastName("Zhul").about("dota 2 busting").weight(116).build());
-        userRepository.save(User.builder().firstName("Ilya").lastName("Shikh").birthday(LocalDate.of(1997, 5, 15)).build());
-        userRepository.save(User.builder().firstName("Dima").lastName("Shikh").weight(78).build());
-        userRepository.save(User.builder().firstName("Dawn").lastName("Breaker").sex(Sex.FEMALE).build());
-        userRepository.save(User.builder().firstName("Stas").lastName("Mikhailov").city("HUITI").build());
-        userRepository.save(User.builder().firstName("Kek").region("HUEDGN").build());
+        userRepository.save(User.builder().login("Murat").password("1").firstName("Мурат").lastName("Zhul").about("dota 2 busting").weight(116).build());
+        userRepository.save(User.builder().login("Ilya").password("1").firstName("Ilya").lastName("Shikh").birthday(LocalDate.of(1997, 5, 15)).build());
+        userRepository.save(User.builder().login("Dima").password("1").firstName("Dima").lastName("Shikh").weight(78).build());
+        userRepository.save(User.builder().login("Dawn").password("1").firstName("Dawn").lastName("Breaker").sex(Sex.FEMALE).build());
+        userRepository.save(User.builder().login("Stas").password("1").firstName("Stas").lastName("Mikhailov").city("HUITI").build());
+        userRepository.save(User.builder().login("Shrek").password("1").firstName("Kek").region("HUEDGN").build());
     }
 }

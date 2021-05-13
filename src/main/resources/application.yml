@@ -34,8 +34,8 @@ spring:
 
 
 storage:
-  location: /Users/shikhovtsev/IdeaProjects/TWF/files
+  location: ./src/main/resources/files
 
 logging:
   level:
-    org.springframework.web: DEBUG
+    org.springframework.web:
