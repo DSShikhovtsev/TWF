@@ -1,4 +1,4 @@
-package ru.twf.services;
+package ru.twf.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

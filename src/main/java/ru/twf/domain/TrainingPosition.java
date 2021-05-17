@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 
+//нахера эта таблица?
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor

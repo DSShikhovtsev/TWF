@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.twf.domain.Community;
 import ru.twf.domain.Season;
+import ru.twf.domain.User;
 import ru.twf.repository.CommunityRepository;
 import ru.twf.services.CommunityService;
 import ru.twf.services.SeasonService;
@@ -76,5 +77,11 @@ public class CommunityServiceImpl implements CommunityService {
             isAvailable.getCommunities().add(community);
             seasonService.save(isAvailable);
         }
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Community> getAllByUser(User user) {
+        return repository.findAllByUser(user);
     }
 }
