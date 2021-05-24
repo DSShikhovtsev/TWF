@@ -3,6 +3,8 @@ package ru.twf.controller;
 import org.springframework.web.bind.annotation.*;
 import ru.twf.domain.Training;
 import ru.twf.domain.TrainingExercise;
+import ru.twf.domain.User;
+import ru.twf.enums.TrainingType;
 import ru.twf.services.TrainingService;
 
 import java.util.List;
@@ -44,5 +46,15 @@ public class TrainingController {
     @GetMapping("/trainings/{id}/exercises")
     public List<TrainingExercise> getTrainingExercises(@PathVariable(name = "id") Long id) {
         return trainingService.getTrainingById(id).getTrainingExercises();
+    }
+
+    @PostMapping("/trainings/start")
+    public Training startTraining(User user, TrainingType type) {
+        return trainingService.startTraining(user, type);
+    }
+
+    @PostMapping("/trainings/end")
+    public Training endTraining(Training training, List<TrainingExercise> trainingExercises) {
+        return trainingService.finishTrain(training, trainingExercises);
     }
 }

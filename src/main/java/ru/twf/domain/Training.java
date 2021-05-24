@@ -22,7 +22,7 @@ public class Training {
     @Column(nullable = false)
     private LocalDateTime startDate;
 
-    @Column(nullable = false)
+    @Column
     private LocalDateTime endDate;
 
     @Column(nullable = false)

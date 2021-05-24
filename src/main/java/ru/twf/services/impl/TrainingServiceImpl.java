@@ -3,12 +3,15 @@ package ru.twf.services.impl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.twf.domain.Training;
+import ru.twf.domain.TrainingExercise;
 import ru.twf.domain.User;
 import ru.twf.dto.UserDTO;
+import ru.twf.enums.TrainingType;
 import ru.twf.repository.TrainingsRepository;
 import ru.twf.services.TrainingService;
 import ru.twf.services.UserService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -56,5 +59,24 @@ public class TrainingServiceImpl implements TrainingService {
     @Override
     public List<Training> getUserTrainings(UserDTO userDTO) {
         return repository.findAllByUser(userService.convertToUser(userDTO));
+    }
+
+    @Transactional
+    @Override
+    public Training startTraining(User user, TrainingType type) {
+        Training training = new Training();
+        training.setStartDate(LocalDateTime.now());
+        training.setCalories(0L);
+        training.setType(type);
+        training.setUser(user);
+        return save(training);
+    }
+
+    @Transactional
+    @Override
+    public Training finishTrain(Training training, List<TrainingExercise> exercises) {
+        training.setEndDate(LocalDateTime.now());
+        training.getTrainingExercises().addAll(exercises);
+        return save(training);
     }
 }
