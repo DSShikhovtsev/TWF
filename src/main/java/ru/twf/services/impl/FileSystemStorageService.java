@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 import ru.twf.controller.UserController;
-import ru.twf.services.StorageProperties;
+import ru.twf.properties.StorageProperties;
 import ru.twf.services.StorageService;
 
 import java.io.IOException;
